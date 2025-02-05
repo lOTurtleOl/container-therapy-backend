@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.promineo</groupId>
-	<artifactId>container_therapy</artifactId>
+	<artifactId>container-therapy-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>container_therapy</name>
 	<description>CBT container therapy project for Spring Boot</description>
