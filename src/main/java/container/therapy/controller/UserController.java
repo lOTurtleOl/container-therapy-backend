@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,8 +44,8 @@ public class UserController {
 	
 	@PostMapping
 	public ResponseEntity<UserData> createUser(@RequestBody User user) {
-		User savedUser = userService.createUser(user);
-		return ResponseEntity.ok(userService.convertToDto(savedUser));
+		UserData createdUser = userService.createUser(user);
+		return ResponseEntity.ok(createdUser);
 	}
 	
 	// If we handled conversion of data in controller:
@@ -63,7 +65,16 @@ public class UserController {
 	public ResponseEntity<List<UserData>> getAllUsers() {
 	    return ResponseEntity.ok(userService.getAllUsers());  // Already converted
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<UserData> getUserById(@PathVariable Long id) {
+		return ResponseEntity.ok(userService.getUserById(id));
+	}
 
+	@DeleteMapping("/{id}")
+	public void deleteUserById(@PathVariable Long id) {
+		userService.deleteUser(id);
+	}
 	
 	
 }

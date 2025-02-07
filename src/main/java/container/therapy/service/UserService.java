@@ -33,8 +33,9 @@ public class UserService {
 		return userData;
 	}
 	
-	public User createUser(User user) {
-		return userDao.save(user);
+	public UserData createUser(User user) {
+		User savedUser = userDao.save(user);
+		return convertToDto(savedUser);
 	}
 	
 	// If we handled conversion in controller
@@ -51,13 +52,16 @@ public class UserService {
 	}
 
 	
-	public User getUserById(Long id) {
-		return userDao.findById(id)
+	public UserData getUserById(Long id) {
+		User foundUser = userDao.findById(id)
 				.orElseThrow(() -> new NoSuchElementException("User not found"));
+		return convertToDto(foundUser);
 	}
 	
 	public void deleteUser(Long id) {
-		userDao.deleteById(id);
+		User user = userDao.findById(id)
+				.orElseThrow(() -> new NoSuchElementException("User with ID " + id + " not found."));
+		userDao.delete(user);
 	}
 	
 }
