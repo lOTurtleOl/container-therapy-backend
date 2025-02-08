@@ -24,7 +24,7 @@ import lombok.ToString;
  */
 @Entity
 @Data
-public class Object {
+public class ContainerObject {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

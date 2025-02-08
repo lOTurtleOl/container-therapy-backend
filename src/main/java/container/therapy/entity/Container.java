@@ -39,8 +39,8 @@ public class Container {
 	@JoinColumn(name = "user_id", nullable = false) // creates a foreign key column in container table / specifies the foreign key in the table
 	private User user;
 	
-	@ManyToMany(mappedBy = "containers", cascade = CascadeType.PERSIST) // defines relationship to PetStore / mappedBy says that this side is not the Owning side, which is defined by the PetStore entity instead / when a customer is saved, any associated PetStore entities are also persisted
-	@EqualsAndHashCode.Exclude // prevents recursion when comparing objects with circular relationships
-	@ToString.Exclude // Exclude this field from the toString method to avoid infinite loops caused by bidirectional relationships
-	private Set<Object> objects; // customer can be associated with multiple pet stores, this represents that collection
+	@ManyToMany(mappedBy = "containers", cascade = CascadeType.PERSIST) 
+	@EqualsAndHashCode.Exclude 
+	@ToString.Exclude 
+	private Set<ContainerObject> containerObjects; 
 }

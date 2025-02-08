@@ -26,10 +26,10 @@ public class UserService {
 	
 	public UserData convertToDto(User user) {
 		UserData userData = new UserData();
-		userData.setUserId(null);
-		userData.setUserName(null);
-		userData.setUserEmail(null);
-		userData.setUserCreatedAt(null);
+		userData.setUserId(user.getUserId());
+		userData.setUserName(user.getUserName());
+		userData.setUserEmail(user.getUserEmail());
+		userData.setUserCreatedAt(user.getUserCreatedAt());
 		return userData;
 	}
 	
