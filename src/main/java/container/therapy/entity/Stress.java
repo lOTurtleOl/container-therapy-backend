@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -24,27 +25,27 @@ import lombok.ToString;
  */
 @Entity
 @Data
-public class ContainerObject {
+public class Stress {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long objectId;
+	private Long stressId;
 	
-	private String objectValue;
+	private String stressValue;
 	
-	private String objectDate; // When did the event / trauma occur
+	private String stressDate; // When did the event / trauma occur
 	
-	private String objectCreatedBy;
+	private String stressCreatedBy;
 	
-	private Date objectCreatedAt;
+	private Date stressCreatedAt;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
-			name = "container_object", // name of the join table
-			joinColumns = @JoinColumn(name = "container_id"), // foreign key to PetStore
-			inverseJoinColumns = @JoinColumn(name = "object_id")
+			name = "container_stress", // name of the join table
+			joinColumns = @JoinColumn(name = "stress_id"), // foreign key to PetStore
+			inverseJoinColumns = @JoinColumn(name = "container_id")
 	)
 	private Set<Container> containers = new HashSet<>();
 }

@@ -1,8 +1,8 @@
 spring:
   datasource:
-    username: container-therapy-backend
-    password: container-therapy-backend
-    url: jdbc:mysql://localhost:3306/container-therapy-backend
+    username: container_therapy
+    password: container_therapy
+    url: jdbc:mysql://localhost:3306/container_therapy
     
   jpa:
      hibernate:
