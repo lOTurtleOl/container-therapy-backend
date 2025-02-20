@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 
 import container.therapy.controller.model.ContainerData;
 import container.therapy.dao.ContainerDao;
-import container.therapy.dao.StressDao;
+import container.therapy.dao.TopicDao;
 import container.therapy.entity.Container;
-import container.therapy.entity.Stress;
+import container.therapy.entity.Topic;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -28,7 +28,7 @@ public class ContainerService {
 	
 	@Autowired
 	private ContainerDao containerDao;
-	private StressDao stressDao;
+	private TopicDao topicDao;
 	
 	public ContainerData createContainer(Container container) {
 		Container savedContainer = containerDao.save(container);;

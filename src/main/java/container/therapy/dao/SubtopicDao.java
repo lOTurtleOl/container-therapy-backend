@@ -5,11 +5,11 @@ package container.therapy.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import container.therapy.entity.Stress;
+import container.therapy.entity.Subtopic;
 
 /**
  * 
  */
-public interface StressDao extends JpaRepository<Stress, Long>  {
+public interface SubtopicDao extends JpaRepository<Subtopic, Long> {
 
 }

@@ -12,8 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -23,23 +22,24 @@ import lombok.ToString;
  */
 @Entity
 @Data
-public class User {
+public class Subtopic {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long userId;
+	private Long subtopicId;
 	
-	private String userName;
 	
-	private String userPassword;
+	private String subtopicValue;
 	
-	private String userEmail;
+	private String subtopicDate;
 	
-	private String userCreatedAt;
+	private String subtopicCreatedBy;
+	
+	private String subtopicCreatedAt;
+	
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-	
-	private Container container;
+	@ManyToMany(mappedBy = "subtopics", cascade = CascadeType.PERSIST)
+	private Set<Topic> topics = new HashSet<>();
 }

@@ -3,18 +3,19 @@
  */
 package container.therapy.controller.model;
 
-import java.util.Date;
 import java.util.Set;
 
 import container.therapy.entity.Container;
-import container.therapy.entity.Stress;
+import container.therapy.entity.Topic;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 /**
  * DTO for Container entity
  */
 @Data
+@NoArgsConstructor
 public class ContainerData {
 
 	private Long containerId;
@@ -23,11 +24,9 @@ public class ContainerData {
 	
 	private Boolean containerIsPublic;
 	
-	private Date containerCreatedAt;
+	private String containerCreatedAt;
 	
-	private Long userId;
-	
-	private Set<StressData> stressors;
+	private Set<TopicData> topics;
 	
 	public ContainerData(Container container) { // go through and map all petStoreData fields to their respective entity field values
 		containerId = container.getContainerId();
@@ -35,8 +34,8 @@ public class ContainerData {
 		containerIsPublic = container.getContainerIsPublic();
 		containerCreatedAt = container.getContainerCreatedAt();
 		
-			for (Stress stress : container.getStressors()) {
-					stressors.add(new StressData(stress));
+			for (Topic topic : container.getTopics()) {
+					topics.add(new TopicData(topic));
 		}
 				
 	}
