@@ -1,0 +1,15 @@
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Alice Smith', 'password123', 'alice@example.com', '2025-02-23 10:15:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Bob Jones', 'securepass', 'bob@example.com', '2025-02-23 10:16:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Charlie Brown', 'mypassword', 'charlie@example.com', '2025-02-23 10:17:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Daisy Johnson', 'daisyrocks', 'daisy@example.com', '2025-02-23 10:18:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Ethan Hunt', 'missionpass', 'ethan@example.com', '2025-02-23 10:19:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Fiona Gallagher', 'shamelesspass', 'fiona@example.com', '2025-02-23 10:20:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('George Washington', 'founderpass', 'george@example.com', '2025-02-23 10:21:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Hannah Montana', 'bestofboth', 'hannah@example.com', '2025-02-23 10:22:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Ian Malcolm', 'dinopass', 'ian@example.com', '2025-02-23 10:23:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Jack Sparrow', 'piratepass', 'jack@example.com', '2025-02-23 10:24:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Katie Bell', 'quidditchpass', 'katie@example.com', '2025-02-23 10:25:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Liam Neeson', 'takenpass', 'liam@example.com', '2025-02-23 10:26:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Mia Thermopolis', 'princesspass', 'mia@example.com', '2025-02-23 10:27:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Nathan Drake', 'unchartedpass', 'nathan@example.com', '2025-02-23 10:28:00');
+INSERT INTO user (user_name, user_password, user_email, user_created_at) VALUES ('Olivia Benson', 'svupass', 'olivia@example.com', '2025-02-23 10:28:00');
