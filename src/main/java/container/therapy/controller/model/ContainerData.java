@@ -28,11 +28,14 @@ public class ContainerData {
 	
 	private Set<TopicData> topics;
 	
+	private Long userId;
+	
 	public ContainerData(Container container) { // go through and map all petStoreData fields to their respective entity field values
 		containerId = container.getContainerId();
 		containerName = container.getContainerName();
 		containerIsPublic = container.getContainerIsPublic();
 		containerCreatedAt = container.getContainerCreatedAt();
+		userId = (container.getUser() != null) ? container.getUser().getUserId() : null; // if else
 		
 			for (Topic topic : container.getTopics()) {
 					topics.add(new TopicData(topic));

@@ -1,8 +1,9 @@
 spring:
   datasource:
-    username: container_therapy
-    password: container_therapy
-    url: jdbc:mysql://localhost:3306/container_therapy
+     username: container_therapy
+     password: container_therapy
+     url: jdbc:mysql://localhost:3306/container_therapy
+     initialization-mode: always
     
   jpa:
      hibernate:

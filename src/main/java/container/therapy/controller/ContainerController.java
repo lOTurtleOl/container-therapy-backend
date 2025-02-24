@@ -5,7 +5,6 @@ package container.therapy.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import container.therapy.controller.model.ContainerData;
-import container.therapy.entity.Container;
 import container.therapy.service.ContainerService;
 import lombok.RequiredArgsConstructor;
 
@@ -31,9 +29,22 @@ public class ContainerController {
 	
 	private final ContainerService containerService;
 	
+//	@PostMapping
+//	public ResponseEntity<ContainerData> createContainer(@RequestBody Container container) {
+//		Container newContainer = containerService.createContainer(container);
+//		return ResponseEntity.ok(newContainer);
+//	}
 	@PostMapping
-	public ResponseEntity<ContainerData> createContainer(@RequestBody Container container) {
-		ContainerData newContainer = containerService.createContainer(container);
+	public ResponseEntity<ContainerData> createContainer(@RequestBody ContainerData containerData) {
+		if (containerData.getContainerId() != null) {
+			return ResponseEntity.badRequest().build();
+		}
+		
+		if (containerData.getUserId() == null) {
+			throw new IllegalArgumentException("User ID is required to create a container.");
+		}
+		
+		ContainerData newContainer = containerService.createContainer(containerData);
 		return ResponseEntity.ok(newContainer);
 	}
 	

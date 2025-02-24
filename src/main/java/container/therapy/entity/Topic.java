@@ -3,7 +3,6 @@
  */
 package container.therapy.entity;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,7 +36,7 @@ public class Topic {
 	
 	private String topicCreatedBy;
 	
-	private Date topicCreatedAt;
+	private String topicCreatedAt;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
@@ -48,6 +47,6 @@ public class Topic {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "topics_subtopics", joinColumns = @JoinColumn(name = "topic_id"), inverseJoinColumns = @JoinColumn(name = "subtopic_id"))
+	@JoinTable(name = "topic_subtopic", joinColumns = @JoinColumn(name = "topic_id"), inverseJoinColumns = @JoinColumn(name = "subtopic_id"))
 	private Set<Subtopic> subtopics = new HashSet<>();
 }

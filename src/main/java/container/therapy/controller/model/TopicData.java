@@ -3,8 +3,6 @@
  */
 package container.therapy.controller.model;
 
-import java.util.Date;
-
 import container.therapy.entity.Topic;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +22,7 @@ public class TopicData {
 	
 	private String topicCreatedBy;
 	
-	private Date topicCreatedAt;
+	private String topicCreatedAt;
 	
 	public TopicData(Topic topic) {
 		topicId = topic.getTopicId();
