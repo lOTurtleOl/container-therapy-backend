@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import container.therapy.controller.model.UserData;
-import container.therapy.entity.User;
 import container.therapy.service.UserService;
 import lombok.RequiredArgsConstructor;
 
@@ -30,7 +30,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	// How we could do this without a Data Transfer Object
 //	@PostMapping
 //	@ResponseStatus(code = HttpStatus.CREATED)
@@ -41,13 +41,13 @@ public class UserController {
 //	public ResponseEntity<List<User>> getAllUsers() {
 //		return ResponseEntity.ok(userService.getAllUsers());
 //	}
-	
-	@PostMapping
-	public ResponseEntity<UserData> createUser(@RequestBody User user) {
-		UserData createdUser = userService.createUser(user);
+
+	@PostMapping("/register")
+	public ResponseEntity<UserData> createUser(@RequestBody UserData userData, @RequestParam String password) {
+		UserData createdUser = userService.createUser(userData, password);
 		return ResponseEntity.ok(createdUser);
 	}
-	
+
 	// If we handled conversion of data in controller:
 //	@GetMapping
 //	public ResponseEntity<List<UserData>> getAllUsers() {
@@ -59,13 +59,13 @@ public class UserController {
 //		
 //		return ResponseEntity.ok(userData);
 //	}
-	
+
 	// Clean code where conversion is handled in service layer
 	@GetMapping
 	public ResponseEntity<List<UserData>> getAllUsers() {
-	    return ResponseEntity.ok(userService.getAllUsers());  // Already converted
+		return ResponseEntity.ok(userService.getAllUsers()); // Already converted
 	}
-	
+
 	@GetMapping("/{id}")
 	public ResponseEntity<UserData> getUserById(@PathVariable Long id) {
 		return ResponseEntity.ok(userService.getUserById(id));
@@ -75,6 +75,5 @@ public class UserController {
 	public void deleteUserById(@PathVariable Long id) {
 		userService.deleteUser(id);
 	}
-	
-	
+
 }
