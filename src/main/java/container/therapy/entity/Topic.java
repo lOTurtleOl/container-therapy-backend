@@ -30,7 +30,7 @@ public class Topic {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long topicId;
 	
-	private String topicValue;
+	private String topicName;
 	
 	private String topicDate; // When did the event / trauma occur
 	
