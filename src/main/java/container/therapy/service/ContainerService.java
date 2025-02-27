@@ -23,11 +23,13 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class ContainerService {
-	
+
 	@Autowired
 	private ContainerDao containerDao;
+
+	@Autowired
 	private UserDao userDao;
-	
+
 //	public ContainerData createContainer(Container container) {
 //		User user = userDao.findById(userId)
 //				.orElseThrow(() -> elementNotFound("User", userId));
@@ -42,23 +44,22 @@ public class ContainerService {
 		container.setContainerIsPublic(containerData.getContainerIsPublic());
 		container.setContainerCreatedAt(containerData.getContainerCreatedAt());
 		container.setUser(user);
-		
+
 		Container savedContainer = containerDao.save(container);
 		return new ContainerData(savedContainer);
 	}
-	
+
 	public ContainerData updateContainer(Long id, ContainerData updatedData) {
-		Container container = containerDao.findById(id)
-				.orElseThrow(() -> elementNotFound("Container", id));
-		
+		Container container = containerDao.findById(id).orElseThrow(() -> elementNotFound("Container", id));
+
 		container.setContainerName(updatedData.getContainerName());
 		container.setContainerIsPublic(updatedData.getContainerIsPublic());
 		container.setContainerCreatedAt(updatedData.getContainerCreatedAt());
-		
+
 		containerDao.save(container);
 		return new ContainerData(container);
 	}
-	
+
 	public List<ContainerData> getAllContainers() {
 		List<Container> containers = containerDao.findAll();
 		List<ContainerData> result = new ArrayList<>();
@@ -68,19 +69,19 @@ public class ContainerService {
 		}
 		return result;
 	}
-	
+
 	public ContainerData getContainerById(Long id) {
 		Container foundContainer = containerDao.findById(id)
 				.orElseThrow(() -> new NoSuchElementException("Container not found."));
 		return new ContainerData(foundContainer);
 	}
-	
+
 	public void deleteContainer(Long id) {
 		Container container = containerDao.findById(id)
 				.orElseThrow(() -> new NoSuchElementException("Container with ID " + id + " not found."));
 		containerDao.delete(container);
 	}
-	
+
 	private static NoSuchElementException elementNotFound(String entityName, Long id) {
 		return new NoSuchElementException(entityName + " with ID of " + id + " not found.");
 	}
