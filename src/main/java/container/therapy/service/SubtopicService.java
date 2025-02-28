@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import container.therapy.controller.model.SubtopicData;
 import container.therapy.dao.SubtopicDao;
@@ -28,6 +29,7 @@ public class SubtopicService {
 	@Autowired
 	private SubtopicDao subtopicDao;
 
+	@Transactional
 	public SubtopicData createSubtopic(Long topicId, Subtopic subtopic) {
 		Topic topic = topicDao.findById(topicId).orElseThrow(() -> elementNotFound("Topic", topicId));
 		topic.getSubtopics().add(subtopic);
