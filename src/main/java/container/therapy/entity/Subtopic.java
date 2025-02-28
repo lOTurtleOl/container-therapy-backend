@@ -3,7 +3,6 @@
  */
 package container.therapy.entity;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,17 +26,15 @@ public class Subtopic {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long subtopicId;
-	
-	
-	private String subtopicValue;
-	
+
+	private String subtopicName;
+
 	private String subtopicDate;
-	
+
 	private String subtopicCreatedBy;
-	
+
 	private String subtopicCreatedAt;
-	
-	
+
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(mappedBy = "subtopics", cascade = CascadeType.PERSIST)

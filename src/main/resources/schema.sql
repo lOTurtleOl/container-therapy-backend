@@ -26,7 +26,7 @@ CREATE TABLE container (
 
 CREATE TABLE topic (
 	topic_id BIGINT NOT NULL AUTO_INCREMENT,
-	topic_value VARCHAR(128) NOT NULL,
+	topic_name VARCHAR(128) NOT NULL,
 	topic_date VARCHAR(60) NOT NULL,
 	topic_created_by VARCHAR(60) NOT NULL,
 	topic_created_at VARCHAR(60),
@@ -37,7 +37,7 @@ CREATE TABLE topic (
 
 CREATE TABLE subtopic (
 	subtopic_id BIGINT NOT NULL AUTO_INCREMENT,
-	subtopic_value VARCHAR(128) NOT NULL,
+	subtopic_name VARCHAR(128) NOT NULL,
 	subtopic_date VARCHAR(60) NOT NULL,
 	subtopic_created_by VARCHAR(60) NOT NULL,
 	subtopic_created_at VARCHAR(60),
